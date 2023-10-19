@@ -1,0 +1,36 @@
+class vehicle {
+    int no_of_seats,no_of_wheels;
+    vehicle() {
+        no_of_seats=4;
+        no_of_wheels=4;
+    }
+    vehicle(int no_of_seats	,int no_of_wheels) {
+        this.no_of_seats=no_of_seats;
+        this.no_of_wheels=no_of_wheels;
+    }
+    void showvehicle() {
+        System.out.println("no. of seats" +no_of_seats);
+        System.out.println("no. of wheels" +no_of_wheels);
+    }
+}
+
+class motorcycle extends vehicle {
+    motorcycle() {
+        super(2,2);
+    }
+}
+
+class car extends vehicle {
+    car() {
+        super(4,4);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        vehicle motorcycle=new motorcycle();
+        vehicle car=new car();
+        motorcycle.showvehicle();
+        System.out.println(" ");
+        car.showvehicle();
+    }
+}

@@ -1,0 +1,31 @@
+public class LambdaExpressionsDemo {
+	interface MathOperation {
+		int operate(int a, int b);
+	}
+public static void main(String[] args) {
+// Lambda expression with multiple parameters and explicit return type
+	MathOperation addition = (int a, int b) -> {
+	return a + b;
+	};
+// Lambda expression with single parameter and inferred return type
+	MathOperation subtraction = (a, b) -> a - b;
+// Lambda expression with no parameters
+	Runnable helloWorld = () -> {
+		System.out.println("Hello, world!");
+	};
+// Lambda expression with single parameter and no return statement
+	PrintMessage printMessage = message -> System.out.println(message);
+	int num1 = 10;
+	int num2 = 5;
+	System.out.println("Addition: " + operate(num1, num2, addition));
+	System.out.println("Subtraction: " + operate(num1, num2, subtraction));
+	helloWorld.run();
+	printMessage.print("Lambda expressions are awesome!");
+	}
+private static int operate(int a, int b, MathOperation mathOperation) {
+	return mathOperation.operate(a, b);
+	}
+interface PrintMessage {
+	void print(String message);
+	}
+}

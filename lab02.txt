@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class AverageWithLargestAndSmallest {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter the number of elemenets in an array:");
+		int numberofelements = scanner.nextInt();
+		int[] array = new int[numberofelements];
+		System.out.println("Enter the elemenets in an array:");
+        for (int i = 0; i < numberofelements; i++) {
+            array[i] = scanner.nextInt();
+        }
+
+        int largest = array[0];
+        int smallest = array[0];
+        for (int i = 1; i < numberofelements; i++) {
+            if (array[i] > largest) {
+                largest = array[i];
+            }
+            if (array[i] < smallest) {
+                smallest = array[i];
+            }
+        }
+        
+        double average = 0.0;
+        for (int i = 0; i < numberofelements; i++) {
+            if (array[i] != largest && array[i] != smallest) {
+                average += array[i];
+            }
+        }
+        average /= (numberofelements-2);
+        System.out.println("The average value is " + average); 
+	}
+}

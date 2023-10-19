@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class SumOfIntegers {
+
+    public static void main(String[] args) throws SumGreaterThan100Exception{
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter two integers: ");
+        int firstInteger = scanner.nextInt();
+        int secondInteger = scanner.nextInt();
+
+        int sum = firstInteger + secondInteger;
+
+        if (sum < 100) {
+            System.out.println("The sum of the integers is " + sum);
+        } else {
+
+            throw new SumGreaterThan100Exception("The sum of the integers is greater than 100.");
+        }
+        scanner.close();
+    }
+}
+
+class SumGreaterThan100Exception extends Exception {
+
+    public SumGreaterThan100Exception(String message) {
+        super(message);
+    }
+}

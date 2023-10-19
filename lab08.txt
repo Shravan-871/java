@@ -1,0 +1,28 @@
+package package1;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class WriteReadFile {
+
+    public static void main(String[] args) throws IOException {
+        String USNValue = "1234567890";
+        File file = new File("USNValue.txt");
+        PrintWriter writer = new PrintWriter(file);
+        writer.println(USNValue);
+        writer.close();
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line = reader.readLine();
+        int numberOfDigits = 0;
+        for (int i = 0; i < line.length(); i++) {
+            if (Character.isDigit(line.charAt(i))) {
+                numberOfDigits++;
+            }
+        }
+        System.out.println("The number of digits in the file is " + numberOfDigits);
+        reader.close();
+    }
+}

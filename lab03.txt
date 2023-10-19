@@ -1,0 +1,21 @@
+#at package1 and  class B
+
+package package1;
+
+public class A {
+public void display(){
+	System.out.println("this is class a");
+}
+}
+
+#at package2 and class B
+
+package package2;
+import package1.*;
+
+public class B {
+public static void main(String args []){
+	A obj=new A();
+	obj.display();	
+}
+}
